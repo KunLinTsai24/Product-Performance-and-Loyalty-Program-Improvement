@@ -1,5 +1,5 @@
 # Project Background
-TechStore E-commerce, established in 2012, focuses on selling electronics such as smartphones, laptops, and tablets, as well as accessories and extended warranties. This project analyzed customer transactions and product data to identify specific factors affecting revenue, customer loyalty, and operational efficiency. The findings and recommendations from this analysis are designed to benefit the marketing team, by providing strategies to optimize customer engagement and loyalty; the sales team, by identifying opportunities to enhance product performance and increase revenue; and the operations team, by addressing inefficiencies impacting order fulfillment and customer satisfaction.
+TechStore E-commerce, established in 2012, focuses on selling electronics such as smartphones, laptops, and tablets, as well as accessories and extended warranties. This project analyzed customer transactions and product data to identify specific factors affecting revenue, customer loyalty, and operational efficiency. The findings and recommendations from this analysis are designed to benefit the marketing team, by providing strategies to optimize customer engagement and loyalty; the sales team, by identifying opportunities to enhance product performance and increase revenue.
 
 The project focused on two key objectives:
 
