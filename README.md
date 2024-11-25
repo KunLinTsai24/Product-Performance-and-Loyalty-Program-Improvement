@@ -1,90 +1,78 @@
 # Project Background
-GlobalStyle E-commerce, a global e-commerce company founded in 2010, specializes in selling electronics, wellness products, accessories, and home decor items. In collaboration with the marketing team, I conducted an in-depth analysis to extract actionable insights and deliver strategic recommendations aimed at improving ad campaign performance, optimizing marketing budgets, and identifying lookalike audiences for targeted growth.
+TechStore E-commerce, established in 2012, focuses on selling electronics such as smartphones, laptops, and tablets, as well as accessories and extended warranties. This project analyzed customer transactions and product data to identify specific factors affecting revenue, customer loyalty, and operational efficiency. The findings and recommendations from this analysis are designed to benefit the marketing team, by providing strategies to optimize customer engagement and loyalty; the sales team, by identifying opportunities to enhance product performance and increase revenue; and the operations team, by addressing inefficiencies impacting order fulfillment and customer satisfaction.
 
 The project focused on two key objectives:
 
-*   **Identifying the Best-Performing Campaign:** Key metrics—Conversion Rate (CR), Click-Through Rate (CTR), and Cost Per Click (CPC)—were analyzed to determine the most effective audience combinations. Statistical Testing validated that Campaign Effectiveness differences were statistically significant and actionable.
-*   **Refined User Segmentation**: The findings provided a deeper understanding of audience preferences, enabling the company to further segment user groups and deliver highly targeted and personalized advertising.
+*   **Improving Product Performance:** Metrics such as total sales, product ratings, cancellation rates, and add-on purchases were analyzed to identify products driving revenue and those requiring improvement. Operational inefficiencies, like recurring cancellations, were also examined.
+*   **Evaluating the Loyalty Program**: Customer data was analyzed to compare loyalty members and non-members on metrics such as Average Order Value (AOV), transaction frequency, and add-on purchases. Differences between demographics were used to assess program effectiveness.
 
-There are three campaigns in this project:
-
-*   **916 (Tech Enthusiasts):** Target individuals with a strong interest in technology, gadgets, and innovative tools. This campaign focuses on promoting tech-related products such as smart devices, accessories, and electronics.
-*   **936 (Fitness Goals):** Appeal to individuals interested in fitness, health, and wellness products. This campaign promotes items like gym equipment, activewear, and nutritional supplements.
-*   **1178 (Home Renovators):** Attract DIY enthusiasts, homeowners, and individuals looking to improve their living spaces. The campaign focuses on promoting home renovation products such as tools, furniture, and decor items.
+This analysis identified measurable issues in product performance and customer engagement, providing actionable recommendations to address these challenges.
 
 <br/>
 
-The original dataset for this analysis is available here \[[link](https://github.com/KunLinTsai24/Ad-Campaign-Optimization/blob/main/data/ad_campaign.csv)\].  
-The Python code used to inspect and clean the data for this analysis can be found here \[[link](https://github.com/KunLinTsai24/Ad-Campaign-Optimization/blob/main/script/Campaign%20Optimization.ipynb)\].
+The original dataset for this analysis is available here \[[link](https://github.com/KunLinTsai24/Product-Performance-and-Loyalty-Program-Improvement/tree/main/data)\]. 
+
+The SQL script used to inspect and clean the data for this analysis can be found here \[[link](https://github.com/KunLinTsai24/Product-Performance-and-Loyalty-Program-Improvement/tree/main/script)\].
+
+The Power BI dashboard used for data visualization can be found here \[[link](https://github.com/KunLinTsai24/Product-Performance-and-Loyalty-Program-Improvement/tree/main/dashboard)\].
 
 # Data Structure & Initial Checks
 
-The company’s main database structure is shown below, with a total row count of 1,143 records. A description of the table is as follows:
+The company’s database consists of 20K records, capturing customer, transaction, and product-level details. Key fields include:
 
-*   **ad\_id**: A unique ID for each ad.
-*   **company\_campaign\_id**: An ID associated with each ad campaign of the company.
-*   **fb\_campaign\_id**: An ID associated with how Facebook tracks each campaign.
-*   **age**: Age of the person to whom the ad is shown.
-*   **gender**: Gender of the person to whom the ad is shown.
-*   **interest**: A code specifying the category to which the person’s interest belongs.
-*   **impressions**: The number of times the ad was shown.
-*   **clicks**: Number of clicks for that ad.
-*   **spent**: Amount paid by the company to Facebook to show that ad.
-*   **total\_conversion**: Total number of people who enquired about the product after seeing the ad.
-*   **approved\_conversion**: Total number of people who bought the product after seeing the ad.
+*   **Customer ID:** Unique identifier for each customer.
+*   **Loyalty Member:** Membership status (Yes/No), with values changing over time.
+*   **Product Details:** Includes product type (e.g., Smartphone, Tablet), SKU, and unit price.
+*   **Transaction Details:** Covers order status (Completed/Cancelled), payment method, total price, and add-on purchases.
+*   **Demographics:** Customer age and gender.
+*   **Purchase Behavior:** Quantity, purchase date, and shipping type.
 
 # Executive Summary
 
 ### Overview of Findings
 
-The analysis revealed that the **Tech Enthusiasts** campaign performed exceptionally well, achieving the highest Conversion Rate (CR) and Click-Through Rate (CTR) while maintaining the lowest Cost Per Click (CPC), making it the most efficient campaign overall. The **Fitness Goals** campaign demonstrated strong engagement with a high CTR and moderate CR, offering a balanced performance that could be further optimized. In contrast, the **Home Renovators** campaign underperformed, with the lowest CR and CTR and the highest CPC, indicating significant room for improvement in targeting and cost efficiency. Additionally, the findings highlight that **30-34-year-old males** in both the **Tech Enthusiasts** and **Fitness Goals** campaigns had the best CR, emphasizing this demographic as a critical high-value audience segment.
+The analysis uncovered opportunities for improvement in both product performance and the loyalty program. On the product side, top-performing products like **SMP1004** and **TBL1002** drive significant sales and add-on purchases, while SMP1002, despite high sales, poses risks due to low customer ratings. Recurring cancellation spikes every three months indicate potential operational inefficiencies. Regarding loyalty, members contribute significantly **less in sales and transactions** compared to non-members, with **lower repurchase rates** and no added value in Average Order Value (AOV) or add-on purchases. These findings call for targeted improvements to maximize customer satisfaction and revenue potential.
 
 # Insights Deep Dive
-### Campaign: Tech Enthusiasts:
+### Product Performance:
 
-*   **High Conversion Efficiency**: CR (0.000120) is the highest among the three campaigns, showing that the Tech Enthusiasts campaign converts impressions to conversions more effectively than the others.
-*   **Low Scale**: With only 482,925 impressions and 54 ads, this campaign operates at a significantly smaller scale compared to the others, which limits its overall impact despite high efficiency.
-*   **Cost Efficiency**: The CPC (1.13) is the lowest among the campaigns, making it the most cost-efficient in generating clicks.
+*   **SMP1002 - High Sales but Low Ratings:** Despite generating $9M in sales, SMP1002 has a low customer rating of 2/5, placing it among the lowest-rated products. This suggests unresolved issues impacting customer satisfaction, which could reduce repeat purchases.
+*   **Top 5 Products Drive 73% of Total Sales:** The top five products—SMP1004, SWT1001, TBL1002, SMP1002, and LTP1001—account for nearly three-quarters of revenue. SMP1004 alone contributed $12M. This reliance on a small product group increases risk if these products underperform.
+*   **Seasonal Cancellation Spikes:** Cancellation spikes occur every three months, contributing to a 32.8% overall cancellation rate. These spikes are not linked to specific products, payment methods, or shipping types, suggesting systemic operational issues like inventory shortages or fulfillment delays.
+*   **Add-On Sales Contribution:** Add-ons generated $1.2M in revenue, with TBL1002 contributing $169.99K and SMP1004 $166.7K. This reliance on top-performing SKUs for add-on sales suggests potential for increasing revenue by expanding add-on offerings to other products.
+<br/>
 
-### Campaign: Fitness Goals:
+![]()
 
-*   **Balanced Performance**: CR (0.000066) is moderate compared to the Tech Enthusiasts campaign but better than the Home Renovators campaign. This indicates that while the campaign is not as efficient as the Tech Enthusiasts campaign, it still performs relatively well in converting impressions.
-*   **Significant Scale**: With 8,128,187 impressions and 464 ads, this campaign reaches a much broader audience, providing an opportunity for high absolute conversion numbers.
-*   **Moderate Cost Efficiency**: The CPC (1.36) is higher than the Tech Enthusiasts campaign but still lower than the Home Renovators campaign, making it relatively cost-efficient given its scale.
+### Loyalty Program:
 
-### Campaign: Home Renovators:
+*   **Loyalty Program’s Poor Performance:** Loyalty members contributed only $9.1M in sales and completed 2.9K transactions, while non-members generated $33.5M and completed 10.5K transactions. This represents a 72.87% revenue gap and a 72.23% transaction gap, indicating low loyalty program effectiveness.
+*   **Minimal Impact on Add-On Purchases:** Add-on purchase rates and AOVs for members and non-members were nearly identical (75% vs. 76% and $83 vs. $82), showing that the program does not incentivize incremental purchases.
+*   **Gender-Based AOV Disparities:** Female non-members had the highest AOV at $3,229, exceeding female members’ AOV of $3,082. Male non-members also outperformed male members, with AOVs of $3,152 and $3,153, respectively.
+*   **AOV Gap Across Age Groups:** Non-members had higher AOVs in all but the 21-30 age group, where members slightly outperformed ($3,280 vs. $3,102). The largest non-member advantage was in the 71-80 age group ($3,163 vs. $3,022).
+<br/>
 
-*   **Large Scale but Low Efficiency**: With over 20 million impressions and 625 ads, this campaign has the largest scale but the lowest CR (0.000013), indicating inefficiency in converting impressions into meaningful actions.
-*   **High Engagement Challenges**: CTR (0.000176) is the lowest among all campaigns, indicating that the ads are not resonating well with the audience, leading to poor click engagement.
-*   **Cost Inefficiency**: CPC (1.54) is the highest, suggesting that the campaign is spending more to generate clicks compared to the others, which could be driving up costs without corresponding returns.
-
-![](https://github.com/KunLinTsai24/Ad-Campaign-Optimization/blob/main/img/Campaign.png)
-
-### Target Audience Segmentation:
-
-*   **30-34-Year-Old Males**: 30-34-year-old males are the top-performing segment across the Tech Enthusiasts campaign (CR = 0.000189) and the Fitness Goals campaign (CR = 0.000178), making them a critical high-value audience to target with tailored content and increased ad spend.
-*   **CR Declines with Age**: The Fitness Goals campaign shows a clear CR drop with age for both genders (e.g., males: 0.000178 → 0.000063), highlighting younger audiences (30-34, 35-39) as significantly more responsive and higher ROI potential.
-*   **Competitive Performance**: 30-34-year-old females show strong CR in the Fitness Goals campaign (CR = 0.000110), presenting an opportunity for targeted campaigns with tailored messaging and creative strategies to further enhance engagement and conversions.
-
-![](https://github.com/KunLinTsai24/Ad-Campaign-Optimization/blob/main/img/Segmentation.png)
+![]()
 
 # Recommendations:
 
-### Campaign Optimization
+### Product Performance
 
-*   **Redesign Ad Creatives for the Home Renovators Campaign**: Include compelling visuals, stronger CTAs, and clear value propositions that align with audience needs (e.g., benefits of the product/service).
-*   **Simplify Landing Pages for the Fitness Goals Campaign**: Ensure mobile optimization and include persuasive elements like testimonials or urgency triggers (e.g., limited-time offers).
-*   **Reallocate Budget Across Campaigns**: Increase budget allocation to the Tech Enthusiasts campaign and reduce spend on the Home Renovators campaign. Focus the remaining budget on testing new targeting and creative strategies.
+*   **Improve SMP1002 Quality:** Analyze customer feedback to identify and address product defects or dissatisfaction. Relaunch with improved features or incentives like discounts to regain trust.
+*   **Diversify Product Portfolio:** Expand mid-tier offerings to reduce reliance on the top five products. Develop new products targeting gaps in the market based on customer demand.
+*   **Address Cancellation Spikes:** Investigate inventory management and fulfillment processes to identify inefficiencies. Use real-time communication to inform customers of delays and reduce cancellations.
+*   **Boost Add-On Sales:** Introduce targeted cross-selling strategies and bundle discounts for underperforming products to increase add-on revenue beyond top SKUs.
   
-### Target Audience Optimization
-*   **Expand 30-34-Year-Old Male Audience**: Use lookalike audience features on platforms like Facebook Ads or Google Ads to target similar users.
-*   **Target 30-34-Year-Old Females**: Design gender-specific campaigns with tailored messaging and creatives to align with this demographic’s preferences and behaviors.
-*   **Reduce Targeting of 40+ Age Groups**: Shift focus away from low-performing segments (40+) to prioritize younger demographics (30-39) with higher conversion potential.
+### Loyalty Program
+*   **Revamp Membership Incentives:** Implement tiered rewards like free shipping, early access to products, or cashback for higher spending to increase member engagement.
+*   **Encourage Member Add-On Purchases:** Create exclusive add-on discounts or loyalty-specific bundles to encourage additional purchases.
+*   **Close the AOV Gap:** Use personalized promotions targeting demographics like the 21-30 age group, who show potential for higher spending. Offer cashback or limited-time discounts to incentivize spending among other age groups.
+*   **Expand Membership Base:** Simplify the membership process and offer sign-up benefits such as welcome discounts to attract high-value non-members.
 
 # Assumptions and Caveats:
 
 Throughout the analysis, multiple assumptions were made to manage challenges with the data. These assumptions and caveats are noted below:
 
-*   **Data Imputation**: Illogical or missing entries were handled using the KNN imputer with 2 nearest neighbors to infer and impute missing values, ensuring continuity and minimizing bias in the dataset.
-*   **Campaign Attribution**: The analysis assumes that conversions and engagement metrics are solely attributed to the campaign being assessed, without considering potential overlaps with other campaigns or external factors like seasonality.
-*   **CTR and CR Correlation**: It was assumed that higher CTR would generally lead to higher CR, although there may be cases where high click engagement does not translate to conversions due to other factors like landing page quality.
+*   **Data Removed During Cleaning:** Rows with “#N/A” gender values and inconsistencies between “addons purchased” and “addons total” were excluded for accuracy.
+*   **Loyalty Membership Dates:** Missing data on start and end dates for membership made it challenging to track customer behavior over time.
+*   **Add-On Attribution:** Add-on revenue was attributed to the primary product purchased, without accounting for promotions or other external factors.
