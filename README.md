@@ -42,7 +42,7 @@ The analysis uncovered opportunities for improvement in both product performance
 *   **Add-On Sales Contribution:** Add-ons generated $1.2M in revenue, with TBL1002 contributing $169.99K and SMP1004 $166.7K. This reliance on top-performing SKUs for add-on sales suggests potential for increasing revenue by expanding add-on offerings to other products.
 <br/>
 
-![]()
+![](https://github.com/KunLinTsai24/Product-Performance-and-Loyalty-Program-Improvement/blob/main/img/Product%20Performance.png)
 
 ### Loyalty Program:
 
@@ -52,7 +52,7 @@ The analysis uncovered opportunities for improvement in both product performance
 *   **AOV Gap Across Age Groups:** Non-members had higher AOVs in all but the 21-30 age group, where members slightly outperformed ($3,280 vs. $3,102). The largest non-member advantage was in the 71-80 age group ($3,163 vs. $3,022).
 <br/>
 
-![]()
+![](https://github.com/KunLinTsai24/Product-Performance-and-Loyalty-Program-Improvement/blob/main/img/Loyalty%20Program.png)
 
 # Recommendations:
 
