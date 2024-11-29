@@ -54,7 +54,7 @@ The analysis uncovered opportunities for improvement in both product performance
 
 ![](https://github.com/KunLinTsai24/Product-Performance-and-Loyalty-Program-Improvement/blob/main/img/Loyalty%20Program.png)
 
-# Recommendations:
+# Recommendation:
 
 ### Product Performance
 
